@@ -33,43 +33,43 @@ At line:1 char:1
 
 The installed version does not work, and updating it is not straightforward. Here's what helped me:
 
-3. **Download the latest version:**
-   - Open your web browser and go to the [Windows Package Manager GitHub Releases page](https://github.com/microsoft/winget-cli/releases).
-   - On the releases page, scroll to the top to find the latest release. It will typically be marked as the "Latest release."
-   - Look for the `.msixbundle` or `.appxbundle` file associated with the latest release. These files are typically named similar to:
-     - `Microsoft.DesktopAppInstaller_*.msixbundle`
-   - Click on the file name to start the download.
+1. **Download the latest version:**
+  - Open your web browser and go to the [Windows Package Manager GitHub Releases page](https://github.com/microsoft/winget-cli/releases).
+  - On the releases page, scroll to the top to find the latest release. It will typically be marked as the "Latest release."
+  - Look for the `.msixbundle` or `.appxbundle` file associated with the latest release. These files are typically named similar to:
+    - `Microsoft.DesktopAppInstaller_*.msixbundle`
+  - Click on the file name to start the download.
 
 2. **Open PowerShell as Administrator**
   - Right-click the Start button and select **"Windows Terminal (Admin)"** or **"PowerShell (Admin)"**.
 
 3. **Get PID of winget running instances:**
-   - In powershell run command:
-     ```powershell
-     tasklist | findstr "WindowsPackageManagerServ"     
-     ```
+  - In powershell run command:
+    ```powershell
+    tasklist | findstr "WindowsPackageManagerServ"     
+    ```
 
 4. **Close existing instance**
-   - Replace 12820 with your PID and run:
-     ```powershell
-     taskkill /PID 12820 /F     
-     ```
+  - Replace 12820 with your PID and run:
+    ```powershell
+    taskkill /PID 12820 /F     
+    ```
 
 5. **Re-register the package:**
-     ```powershell
-     Add-AppxPackage -Register -DisableDevelopmentMode "C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_1.17.10691.0_x64__8wekyb3d8bbwe\AppXManifest.xml"
-     ```
+  ```powershell
+  Add-AppxPackage -Register -DisableDevelopmentMode "C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_1.17.10691.0_x64__8wekyb3d8bbwe\AppXManifest.xml"
+  ```
 
 6. **Install the Package (if needed):**
-   - If you have downloaded the latest .msixbundle or .appxbundle, install it using:
-     ```powershell
-     Add-AppxPackage -Path "C:\Path\To\Downloaded\File.msixbundle"
-     ```
+  - If you have downloaded the latest .msixbundle or .appxbundle, install it using:
+    ```powershell
+    Add-AppxPackage -Path "C:\Path\To\Downloaded\File.msixbundle"
+    ```
 
 By following these steps, you should be able to close the Microsoft.DesktopAppInstaller application and proceed with the update or installation.
 
 You can verify result by
-     ```powershell
+     ```
      winget -v
      ```
 
