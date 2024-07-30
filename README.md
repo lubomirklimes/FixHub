@@ -56,9 +56,9 @@ The installed version does not work, and updating it is not straightforward. Her
     ```
 
 5. **Re-register the package:**
-  ```powershell
-  Add-AppxPackage -Register -DisableDevelopmentMode "C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_1.17.10691.0_x64__8wekyb3d8bbwe\AppXManifest.xml"
-  ```
+    ```powershell
+    Add-AppxPackage -Register -DisableDevelopmentMode "C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_1.17.10691.0_x64__8wekyb3d8bbwe\AppXManifest.xml"
+    ```
 
 6. **Install the Package (if needed):**
   - If you have downloaded the latest '.msixbundle' or '.appxbundle', install it using:
@@ -68,7 +68,4 @@ The installed version does not work, and updating it is not straightforward. Her
 
 By following these steps, you should be able to close the Microsoft.DesktopAppInstaller application and proceed with the update or installation.
 
-You can verify result by `winget -v`
-     ```
-
-You should see something like `v1.8.1911` or newer.
+You can verify result by `winget -v`. You should see something like `v1.8.1911` or newer.
