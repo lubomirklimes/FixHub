@@ -14,6 +14,7 @@ I have installed Windows 11, which includes Winget version 1.2.10691. This versi
 
 ```powershell
 Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
+```
 
 I received the following response:
 ```
