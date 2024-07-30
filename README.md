@@ -33,18 +33,18 @@ At line:1 char:1
 
 The installed version does not work, and updating it is not straightforward. Here's what helped me:
 
-1. **Download the latest version:**
+1. **Download the latest version**
   - Open your web browser and go to the [Windows Package Manager GitHub Releases page](https://github.com/microsoft/winget-cli/releases).
   - On the releases page, scroll to the top to find the latest release. It will typically be marked as the "Latest release."
-  - Look for the `.msixbundle` or `.appxbundle` file associated with the latest release. These files are typically named similar to:
+  - Look for the `.msixbundle` or `.appxbundle` file associated with the latest release. These files are typically named as follows:
     - `Microsoft.DesktopAppInstaller_*.msixbundle`
   - Click on the file name to start the download.
 
 2. **Open PowerShell as Administrator**
   - Right-click the Start button and select **"Windows Terminal (Admin)"** or **"PowerShell (Admin)"**.
 
-3. **Get PID of winget running instances:**
-  - In powershell run command:
+3. **Get the PID of running winget instance**
+  - In powershell, run command:
     ```powershell
     tasklist | findstr "WindowsPackageManagerServ"     
     ```
@@ -61,16 +61,14 @@ The installed version does not work, and updating it is not straightforward. Her
   ```
 
 6. **Install the Package (if needed):**
-  - If you have downloaded the latest .msixbundle or .appxbundle, install it using:
+  - If you have downloaded the latest '.msixbundle' or '.appxbundle', install it using:
     ```powershell
     Add-AppxPackage -Path "C:\Path\To\Downloaded\File.msixbundle"
     ```
 
 By following these steps, you should be able to close the Microsoft.DesktopAppInstaller application and proceed with the update or installation.
 
-You can verify result by
-     ```
-     winget -v
+You can verify result by `winget -v`
      ```
 
-You should see something like v1.8.1911 or newer.
+You should see something like `v1.8.1911` or newer.
